@@ -27,7 +27,7 @@ class PlayerView extends Component {
               <label for="teamSelect"> TEAM </label>
               <select data="team" id="teamSelect">
                 <option value="All">All</option>
-                <option value="GB">GreenBay</option>  
+                <option value="GB">GreenBay</option>
               </select>
             </div>
             <div className="filter-form-select">
@@ -104,4 +104,3 @@ function mapStateToProps(state) {
 }
 
 export default connect(mapStateToProps, { requestAllPlayers })(PlayerView);
-
