@@ -69,6 +69,7 @@ module.exports = {
     });
   },
   getPlayersByName: (req, res) => {
+    const player = req.body.playerOne || req.body.playerTwo;
     PlayerProjectedYear.findAll({
       where: {
         'Name': {
