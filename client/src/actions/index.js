@@ -36,10 +36,11 @@ export function fetchLeagues() {
   };
 }
 
-export function fetchSpecificPlayers(playerId) {
-  const request = axios.post('/api/getPlayersByIds', playerId);
+export function getPlayersByName(playerNames) {
+  const request = axios.post('/api/getPlayersByName', playerNames);
+  console.log(request);
   return {
-    type: FETCH_SPECIFIC_PLAYERS,
+    type: FETCH_COMPARE,
     payload: request,
   };
 }

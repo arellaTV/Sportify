@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-class ComparePlayers extends Component {
+class ComparePlayerHeadshots extends Component {
   render() {
     return (
       <div className="compare-container">
@@ -22,4 +22,4 @@ function mapStateToProps(state) {
   return { players: state.players };
 }
 
-export default connect(mapStateToProps)(ComparePlayers);
+export default connect(mapStateToProps)(ComparePlayerHeadshots);

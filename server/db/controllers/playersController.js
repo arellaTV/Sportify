@@ -62,13 +62,14 @@ module.exports = {
 
 
     db.query(q).then(stats => {
-      let sortedStats = sortByPosition(stats);
-      sortedStats = getHighResolution(sortedStats);
-      res.send(sortedStats);
+      // let sortedStats = sortByPosition(stats);
+      // stats = getHighResolution(stats);
+      // console.log(sortedStats);
+      res.send(stats);
     });
   },
   getPlayersByName: (req, res) => {
-    PlayerProjectedYear.findOne({
+    PlayerProjectedYear.findAll({
       where: {
         'Name': {
           $iLike: `%${req.body.playerOne}%`
@@ -76,8 +77,8 @@ module.exports = {
       },
     })
     .then((playerData) => {
-      const responseArr = [playerData, playerData];
-      res.send(responseArr);
+      console.log(playerData);
+      // res.send(responseArr);
     })
     .catch((err) => {
       console.log(err);

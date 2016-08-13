@@ -1,20 +1,18 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchSpecificPlayers } from '../actions/index';
+import { getPlayersByName } from '../actions/index';
 import ComparePlayerHeadshots from './ComparePlayerHeadshots';
 import ComparePlayerStats from './ComparePlayerStats';
 
 class Compare extends Component {
   componentWillMount() {
-    this.props.fetchSpecificPlayers({ playerId: [7200, 24788] });
+    this.props.getPlayersByName({ playerOne: 'Aaron Rodgers', playerTwo: 'Cam' });
   }
 
   onSubmit(event) {
     event.preventDefault();
-    this.props.fetchSpecificPlayers({
-      playerOne: event.target[0].value,
-      playerTwo: event.target[1].value
-    });
+    this.props.getPlayersByName({ playerOne: event.target[0].value, playerTwo: 'Aaron' })
+      .then(data => console.log(data));
   }
 
   render() {
@@ -39,4 +37,4 @@ function mapStateToProps(state) {
   return { players: state.players };
 }
 
-export default connect(mapStateToProps, { fetchSpecificPlayers })(Compare);
+export default connect(mapStateToProps, { getPlayersByName })(Compare);
