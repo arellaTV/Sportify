@@ -128,10 +128,10 @@ module.exports = {
     const limit = req.body.limit || 20;
     const result = {};
 
-    const q = `SELECT "playerId", "FantasyPointsYahoo", "Name" 
+    const q = `SELECT "playerId", "FantasyPointsYahoo", "Name"
     FROM "playerProjectedYears"
-    WHERE "Position"='${position}' AND 
-    "Season"='${season}' ORDER BY "FantasyPointsYahoo" 
+    WHERE "Position"='${position}' AND
+    "Season"='${season}' ORDER BY "FantasyPointsYahoo"
     DESC LIMIT ${limit};`;
 
     db.query(q).then(stats => {
@@ -139,7 +139,7 @@ module.exports = {
 
       const playerIDs = stats[0].map(player => player.playerId);
 
-      const q2 = `SELECT "playerId", "FantasyPointsYahoo", "Name" 
+      const q2 = `SELECT "playerId", "FantasyPointsYahoo", "Name"
       FROM "playerYearStats"
       WHERE "playerId" IN (${playerIDs.join()})`;
 
