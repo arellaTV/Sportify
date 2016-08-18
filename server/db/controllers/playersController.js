@@ -50,7 +50,6 @@ module.exports = {
     console.log('-----------query', q);
     db.query(q).then(stats => {
       delete stats[1];  //this query returns a lot of "junk" values at index 1;
-      console.log(stats);
       res.send(stats);
     })
     .catch(err => {
