@@ -7,8 +7,8 @@ class ComparePlayerStats extends Component {
       return (
         <tr>
           <td>{stat}</td>
-          <td>{this.props.players[0][stat]}</td>
-          <td>{this.props.players[1][stat]}</td>
+          <td>{this.props.search[0][stat]}</td>
+          <td>{this.props.search[1][stat]}</td>
         </tr>
       );
     });
@@ -35,7 +35,7 @@ class ComparePlayerStats extends Component {
 }
 
 function mapStateToProps(state) {
-  return { players: state.players };
+  return { search: state.query };
 }
 
 export default connect(mapStateToProps)(ComparePlayerStats);
