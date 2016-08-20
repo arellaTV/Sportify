@@ -351,3 +351,12 @@ li {
   width: 100px;
   height: 100px;
 }
+
+/* DIY View */
+.DIYPlayer {
+	/*height: 160px;*/
+}
+
+.DIYStatement {
+	float:left
+}
